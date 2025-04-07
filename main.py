@@ -1,10 +1,10 @@
-def num_words(file):
-    num = 0
-    with open(file) as f:
-        content = f.read()
-    palabras = content.split()
-    for i in palabras:
-        num += 1
-    print(f"{num} words found in the document")
+import sys
+from stats import report
 
-num_words("books/frankenstein.txt")
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    path_to_book = sys.argv[1]
+    report(path_to_book)
